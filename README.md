@@ -37,7 +37,7 @@ or
 
 ---
 
-#### the next watch the index.html html remove the
+#### the next watch the index.html deleted the index.html and multer.js and deleted the down code from app.js
 ```javascript
 	app.get('/', (req, res) => {
 	    res.sendFile(__dirname + '/index.html');
