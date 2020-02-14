@@ -44,9 +44,8 @@ or
 	});
 ```
 
----
 
-#### Deleted the index.html
+
 
 ---
 
