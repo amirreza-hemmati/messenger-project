@@ -26,6 +26,7 @@ Users.find()
 mongoose
   .connect(process.env.URL_DATABASE, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
+	  console.log("starting the database");
     server.listen(process.env.PORT, () => {
       console.log("Starting the server");
     });
