@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      const socket = io();
+
+      socket.emit("getStarted", { user_id: 2283784670 });
+
+      socket.on("isError", error => console.log("error",error));
+
+      socket.on("stateUser", state => console.log("state", state));
+
+      socket.emit("keyUp", { state: true });
+
+      setTimeout(() => {
+        socket.emit("keyUp", { state: false });
+      }, 2000);
+
+      socket.on("keyUp", isTyping => {
+        console.log("isTyping", isTyping);
+      });
+
+      socket.on("messages", messages => {
+        console.log("messages", messages);
+      });
+
+    //   socket.emit("sendMessage", {
+    //     from_user: 2283784670,
+    //     to_user: 2293794670,
+    //     text: "hihi"
+    //   });
+
+      socket.on("newMessage", newMessage => console.log(newMessage, newMessage));
+
+      socket.emit("isRead", { isRead: true, _id: "5e46d1f1cbae3612c09e58fb" });
+      socket.on("isRead", isRead => console.log("isRead",isRead));
+    </script>
+  </body>
+</html>
